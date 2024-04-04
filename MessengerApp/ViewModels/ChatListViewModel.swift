@@ -9,7 +9,7 @@ import Foundation
 
 class ChatListViewModel: ObservableObject {
     
-    @Published var items: [ItemModel] = [] {
+    @Published var items: [MessageItemModel] = [] {
         didSet {
             saveItems()
         }
@@ -24,7 +24,7 @@ class ChatListViewModel: ObservableObject {
     func getItem() {
         guard
             let data = UserDefaults.standard.data(forKey: itemsKey),
-            let savedItems = try? JSONDecoder().decode([ItemModel].self, from: data)
+            let savedItems = try? JSONDecoder().decode([MessageItemModel].self, from: data)
         else { return }
         
         self.items = savedItems
@@ -35,11 +35,11 @@ class ChatListViewModel: ObservableObject {
     }
     
     func addItem(name: String, body: String) {
-        let newItem = ItemModel(name: name, body: body, isNewMessage: false)
+        let newItem = MessageItemModel(name: name, body: body, isNewMessage: false)
         items.append(newItem)
     }
     
-    func updateItem(item: ItemModel) {
+    func updateItem(item: MessageItemModel) {
         if let index = items.firstIndex(where: {$0.id == item.id}) {
             items[index] = item.updateCompletion()
         }

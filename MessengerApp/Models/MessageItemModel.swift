@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ItemModel: Identifiable, Codable {
+struct MessageItemModel: Identifiable, Codable {
     
     let id: String
     let name: String
@@ -21,8 +21,8 @@ struct ItemModel: Identifiable, Codable {
         self.isNewMessage = isNewMessage
     }
     
-    func updateCompletion() -> ItemModel {
-        return ItemModel(id: id, name: name, body: body, isNewMessage: !isNewMessage)
+    func updateCompletion() -> MessageItemModel {
+        return MessageItemModel(id: id, name: name, body: body, isNewMessage: !isNewMessage)
     }
     
 }

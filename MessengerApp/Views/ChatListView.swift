@@ -29,8 +29,8 @@ struct ChatListView: View {
         }
         .navigationTitle("Chat")
         // change text "Add" to "plus circle" icon later
-        .navigationBarItems(trailing: NavigationLink("Add", destination: ChatListView())
-        //change "ChatListView()" -> "ContactView()" after implementing
+        .navigationBarItems(trailing: NavigationLink("Add", destination: ContactListView())
+        
         )
     }
 }

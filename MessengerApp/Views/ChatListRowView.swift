@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ChatListRowView: View {
     
-    let item: ItemModel
+    let item: MessageItemModel
     
     var body: some View {
         VStack {
@@ -36,9 +36,8 @@ struct ChatListRowView: View {
 
 #Preview {
     
-    var item1 = ItemModel(name:"Juhee Kang", body: "Hej!", isNewMessage: true)
-    var item2 = ItemModel(name:"Julia Johansson", body: "Juhee!", isNewMessage: false)
+    var item1 = MessageItemModel(name:"Juhee Kang", body: "Hej!", isNewMessage: true)
+    var item2 = MessageItemModel(name:"Julia Johansson", body: "Juhee!", isNewMessage: false)
 
-    
-    return ChatListRowView(item: item1)
+    return ChatListRowView(item: item2)
 }
