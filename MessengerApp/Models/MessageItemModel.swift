@@ -24,5 +24,4 @@ struct MessageItemModel: Identifiable, Codable {
     func updateCompletion() -> MessageItemModel {
         return MessageItemModel(id: id, name: name, body: body, isNewMessage: !isNewMessage)
     }
-    
 }

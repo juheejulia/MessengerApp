@@ -11,6 +11,7 @@ struct ChatListView: View {
     
     @EnvironmentObject var chatListViewModel: ChatListViewModel
     
+
     var body: some View {
         
         ZStack {
@@ -30,7 +31,6 @@ struct ChatListView: View {
         .navigationTitle("Chat")
         // change text "Add" to "plus circle" icon later
         .navigationBarItems(trailing: NavigationLink("Add", destination: ContactListView())
-        
         )
     }
 }

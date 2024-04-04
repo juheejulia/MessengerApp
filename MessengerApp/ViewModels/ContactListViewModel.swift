@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ConctactListViewModel: ObservableObject {
+class ContactListViewModel: ObservableObject {
     
     @Published var items: [ContactItemModel] = [] {
         didSet {
@@ -34,8 +34,8 @@ class ConctactListViewModel: ObservableObject {
         items.remove(atOffsets: indexSet)
     }
     
-    func addItem(name: String, avatar: String) {
-        let newItem = ContactItemModel(name: name, avatar: avatar)
+    func addItem(name: String, phoneNumber: String, avatar: String) {
+        let newItem = ContactItemModel(name: name, phoneNumber: phoneNumber, avatar: avatar)
         items.append(newItem)
     }
     

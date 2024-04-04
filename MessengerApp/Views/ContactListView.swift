@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContactListView: View {
     
-    @EnvironmentObject var contactListViewModel: ConctactListViewModel
+    @EnvironmentObject var contactListViewModel: ContactListViewModel
     
     var body: some View {
         
@@ -29,8 +29,7 @@ struct ContactListView: View {
         }
         .navigationTitle("Contact")
         // change text "Add" to "plus circle" icon later
-        .navigationBarItems(trailing: NavigationLink("Add", destination: ChatListView())
-        //change "ChatListView()" -> "AddContactView()" after implementing
+        .navigationBarItems(trailing: NavigationLink("Add", destination: AddContactView())
         )
     }
 }
@@ -39,7 +38,7 @@ struct ContactListView: View {
     NavigationView {
         ContactListView()
     }
-    .environmentObject(ConctactListViewModel())
+    .environmentObject(ContactListViewModel())
 }
 
 

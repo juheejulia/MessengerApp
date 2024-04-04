@@ -11,16 +11,18 @@ struct ContactItemModel: Identifiable, Codable {
     
     let id: String
     let name: String
+    let phoneNumber: String
     let avatar: String
     // Need to know and fix how to upload pictures
     
-    init(id: String = UUID().uuidString, name: String, avatar: String) {
+    init(id: String = UUID().uuidString, name: String, phoneNumber: String, avatar: String) {
         self.id = id
         self.name = name
+        self.phoneNumber = phoneNumber
         self.avatar = avatar
     }
     
     func updateCompletion() -> ContactItemModel {
-        return ContactItemModel(id: id, name: name, avatar: avatar)
+        return ContactItemModel(id: id, name: name, phoneNumber: phoneNumber, avatar: avatar)
     }
 }

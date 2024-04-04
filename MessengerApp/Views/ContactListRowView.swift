@@ -20,6 +20,7 @@ struct ContactListRowView: View {
                 Text(item.name)
                     .font(.title2)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                //Text(item.phoneNumber)
                 Spacer()
             }
         }
@@ -31,7 +32,7 @@ struct ContactListRowView: View {
 
 #Preview {
 
-    var item = ContactItemModel(name:"Juhee Kang", avatar: "")
+    var item = ContactItemModel(name:"Juhee Kang", phoneNumber: "0786543000", avatar: "")
 
     return ContactListRowView(item: item)
 
