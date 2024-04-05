@@ -8,11 +8,41 @@
 import SwiftUI
 
 struct ContactListView: View {
+    
+    @EnvironmentObject var contactListViewModel: ContactListViewModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        ZStack {
+            List {
+                ForEach(contactListViewModel.items) { item in
+                    ContactListRowView(item: item)
+                        .onTapGesture {
+                            withAnimation(.linear) {
+                                contactListViewModel.updateItem(item: item)
+                            }
+                        }
+                }
+                .onDelete(perform: contactListViewModel.deleteItem)
+            }
+            .listStyle(PlainListStyle())
+        }
+        .navigationTitle("Contact")
+        // change text "Add" to "plus circle" icon later
+        .navigationBarItems(trailing: NavigationLink("Add", destination: AddContactView())
+        )
     }
 }
 
 #Preview {
-    ContactListView()
+    NavigationView {
+        ContactListView()
+    }
+    .environmentObject(ContactListViewModel())
 }
+
+
+
+    
+    
+

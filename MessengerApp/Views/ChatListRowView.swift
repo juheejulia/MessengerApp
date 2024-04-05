@@ -8,11 +8,36 @@
 import SwiftUI
 
 struct ChatListRowView: View {
+    
+    let item: MessageItemModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            HStack {
+                Image(systemName: item.isNewMessage ? "circle.fill" : "" )
+                    .foregroundColor(item.isNewMessage ? .green : nil)
+                Image(systemName: "circle.fill")
+                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                Text(item.name)
+                    .font(.title2)
+                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
+                Spacer()
+            }
+            Text(item.body)
+                .fontWeight(.regular)
+                .foregroundColor(.gray)
+                .position(CGPoint(x: 72.0, y: 10.0))
+        }
+        //.padding()
+        .padding(.vertical, 8)
     }
 }
 
+
 #Preview {
-    ChatListRowView()
+    
+    //let item1 = MessageItemModel(name:"Juhee Kang", body: "Hej!", isNewMessage: true)
+    let item2 = MessageItemModel(name:"Julia Johansson", body: "Juhee!", isNewMessage: false)
+
+    return ChatListRowView(item: item2)
 }
