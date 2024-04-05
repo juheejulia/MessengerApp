@@ -32,7 +32,7 @@ struct ContactListRowView: View {
 
 #Preview {
 
-    var item = ContactItemModel(name:"Juhee Kang", phoneNumber: "0786543000", avatar: "")
+    let item = ContactItemModel(name:"Juhee Kang", phoneNumber: "0786543000", avatar: "")
 
     return ContactListRowView(item: item)
 

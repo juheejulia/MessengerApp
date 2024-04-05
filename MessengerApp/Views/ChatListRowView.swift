@@ -36,8 +36,8 @@ struct ChatListRowView: View {
 
 #Preview {
     
-    var item1 = MessageItemModel(name:"Juhee Kang", body: "Hej!", isNewMessage: true)
-    var item2 = MessageItemModel(name:"Julia Johansson", body: "Juhee!", isNewMessage: false)
+    //let item1 = MessageItemModel(name:"Juhee Kang", body: "Hej!", isNewMessage: true)
+    let item2 = MessageItemModel(name:"Julia Johansson", body: "Juhee!", isNewMessage: false)
 
     return ChatListRowView(item: item2)
 }
