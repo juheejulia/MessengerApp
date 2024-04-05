@@ -9,22 +9,17 @@ import SwiftUI
 
 struct ChatListView: View {
     
-    @EnvironmentObject var chatListViewModel: ChatListViewModel
+    //@EnvironmentObject var chatListViewModel: ChatListViewModel
     
 
     var body: some View {
         
         ZStack {
             List {
-                ForEach(chatListViewModel.items) { item in
-                    ChatListRowView(item: item)
-                        .onTapGesture {
-                            withAnimation(.linear) {
-                                chatListViewModel.updateItem(item: item)
-                            }
-                        }
+                ForEach(0..<10) { item in
+                    ChatListRowView(item: MessageItemModel(name:"Juhee", body: "Hej", isNewMessage: true))
                 }
-                .onDelete(perform: chatListViewModel.deleteItem)
+                //.onDelete(perform: chatListViewModel.deleteItem)
             }
             .listStyle(PlainListStyle())
         }

@@ -15,15 +15,10 @@ struct ContactListView: View {
         
         ZStack {
             List {
-                ForEach(contactListViewModel.items) { item in
-                    ContactListRowView(item: item)
-                        .onTapGesture {
-                            withAnimation(.linear) {
-                                contactListViewModel.updateItem(item: item)
-                            }
-                        }
-                }
-                .onDelete(perform: contactListViewModel.deleteItem)
+                ForEach(0..<10) { item in
+                    ContactListRowView(item: ContactItemModel(id:"", name: "Bamse", phoneNumber: "1234567890", avatar: ""))
+                 }
+                //.onDelete(perform: contactListViewModel.deleteItem)
             }
             .listStyle(PlainListStyle())
         }
