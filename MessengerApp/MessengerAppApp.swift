@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct MessengerAppApp: App {
+    
+    @StateObject var chatListViewModel: ChatListViewModel = ChatListViewModel()
+    @StateObject var contactListViewModel: ContactListViewModel = ContactListViewModel()
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ChatListView()
+            }
+            .navigationViewStyle(StackNavigationViewStyle())
+            .environmentObject(chatListViewModel)
+            .environmentObject(contactListViewModel)
         }
     }
 }
