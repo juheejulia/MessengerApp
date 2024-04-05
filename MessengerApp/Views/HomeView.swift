@@ -13,11 +13,11 @@ struct HomeView: View {
             TabView{
                 ContactListView()
                     .tabItem {
-                        Label("Contact", systemImage: "telephone")
+                        Label("Contact", systemImage: "list.bullet.rectangle.portrait")
                     }
                 ChatListView()
                     .tabItem {
-                        Label("Chat", systemImage: "chat")
+                        Label("Chat", systemImage: "message")
                     }
                 ProfileView()
                     .tabItem {
