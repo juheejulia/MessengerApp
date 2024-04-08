@@ -27,14 +27,14 @@
 		34E3831B2BBE9CC90055F471 /* ContactListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E3831A2BBE9CC90055F471 /* ContactListViewModel.swift */; };
 		34E3831D2BBE9CDD0055F471 /* ChatWindowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E3831C2BBE9CDD0055F471 /* ChatWindowViewModel.swift */; };
 		34E3831F2BBE9CF50055F471 /* ChatListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E3831E2BBE9CF50055F471 /* ChatListViewModel.swift */; };
-		34E383212BBE9D0D0055F471 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E383202BBE9D0D0055F471 /* SignUpViewModel.swift */; };
-		34E383232BBE9D250055F471 /* SignUpInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E383222BBE9D250055F471 /* SignUpInViewModel.swift */; };
+		34E383232BBE9D250055F471 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E383222BBE9D250055F471 /* AuthViewModel.swift */; };
 		7C0839842BC2ABFC0011B4AB /* ColorExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0839832BC2ABFC0011B4AB /* ColorExtention.swift */; };
 		7C0839862BC356FD0011B4AB /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7C0839852BC356FD0011B4AB /* GoogleService-Info.plist */; };
 		7C0839892BC359070011B4AB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 7C0839882BC359070011B4AB /* FirebaseAuth */; };
 		7C08398B2BC359070011B4AB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7C08398A2BC359070011B4AB /* FirebaseFirestore */; };
 		7C08398D2BC359070011B4AB /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 7C08398C2BC359070011B4AB /* FirebaseStorage */; };
 		7C08398F2BC35DF00011B4AB /* StringExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C08398E2BC35DF00011B4AB /* StringExtention.swift */; };
+		7C0839912BC3E4840011B4AB /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0839902BC3E4840011B4AB /* AuthView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,11 +59,11 @@
 		34E3831A2BBE9CC90055F471 /* ContactListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModel.swift; sourceTree = "<group>"; };
 		34E3831C2BBE9CDD0055F471 /* ChatWindowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatWindowViewModel.swift; sourceTree = "<group>"; };
 		34E3831E2BBE9CF50055F471 /* ChatListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatListViewModel.swift; sourceTree = "<group>"; };
-		34E383202BBE9D0D0055F471 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		34E383222BBE9D250055F471 /* SignUpInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpInViewModel.swift; sourceTree = "<group>"; };
+		34E383222BBE9D250055F471 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		7C0839832BC2ABFC0011B4AB /* ColorExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtention.swift; sourceTree = "<group>"; };
 		7C0839852BC356FD0011B4AB /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7C08398E2BC35DF00011B4AB /* StringExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtention.swift; sourceTree = "<group>"; };
+		7C0839902BC3E4840011B4AB /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,8 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				342974502BC01D5B00ED37CD /* HomeView.swift */,
-				34E3830A2BBE9BC90055F471 /* SignInView.swift */,
-				34E3830C2BBE9BD70055F471 /* SignUpView.swift */,
+				7C0839922BC3E5EB0011B4AB /* AuthenticationView */,
 				34E3830E2BBE9BF30055F471 /* ChatListView.swift */,
 				342974462BBECBD400ED37CD /* ChatListRowView.swift */,
 				34E383102BBE9C0A0055F471 /* ChatWindowView.swift */,
@@ -153,8 +152,7 @@
 				34E3831E2BBE9CF50055F471 /* ChatListViewModel.swift */,
 				34E3831A2BBE9CC90055F471 /* ContactListViewModel.swift */,
 				34E3831C2BBE9CDD0055F471 /* ChatWindowViewModel.swift */,
-				34E383202BBE9D0D0055F471 /* SignUpViewModel.swift */,
-				34E383222BBE9D250055F471 /* SignUpInViewModel.swift */,
+				34E383222BBE9D250055F471 /* AuthViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -166,6 +164,16 @@
 				7C08398E2BC35DF00011B4AB /* StringExtention.swift */,
 			);
 			path = Extentions;
+			sourceTree = "<group>";
+		};
+		7C0839922BC3E5EB0011B4AB /* AuthenticationView */ = {
+			isa = PBXGroup;
+			children = (
+				7C0839902BC3E4840011B4AB /* AuthView.swift */,
+				34E3830A2BBE9BC90055F471 /* SignInView.swift */,
+				34E3830C2BBE9BD70055F471 /* SignUpView.swift */,
+			);
+			path = AuthenticationView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,10 +264,9 @@
 				7C0839842BC2ABFC0011B4AB /* ColorExtention.swift in Sources */,
 				34E3830F2BBE9BF30055F471 /* ChatListView.swift in Sources */,
 				34E3830B2BBE9BC90055F471 /* SignInView.swift in Sources */,
-				34E383212BBE9D0D0055F471 /* SignUpViewModel.swift in Sources */,
 				34E383172BBE9C760055F471 /* User.swift in Sources */,
 				7C08398F2BC35DF00011B4AB /* StringExtention.swift in Sources */,
-				34E383232BBE9D250055F471 /* SignUpInViewModel.swift in Sources */,
+				34E383232BBE9D250055F471 /* AuthViewModel.swift in Sources */,
 				34E3831B2BBE9CC90055F471 /* ContactListViewModel.swift in Sources */,
 				34E383192BBE9CB70055F471 /* ProfileViewModel.swift in Sources */,
 				342974512BC01D5B00ED37CD /* HomeView.swift in Sources */,
@@ -268,6 +275,7 @@
 				34E382F82BBC3D150055F471 /* MessengerAppApp.swift in Sources */,
 				34E3831D2BBE9CDD0055F471 /* ChatWindowViewModel.swift in Sources */,
 				34E3831F2BBE9CF50055F471 /* ChatListViewModel.swift in Sources */,
+				7C0839912BC3E4840011B4AB /* AuthView.swift in Sources */,
 				342974472BBECBD400ED37CD /* ChatListRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
