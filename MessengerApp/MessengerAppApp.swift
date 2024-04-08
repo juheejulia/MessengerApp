@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct MessengerAppApp: App {
@@ -13,10 +14,14 @@ struct MessengerAppApp: App {
     @StateObject var chatListViewModel: ChatListViewModel = ChatListViewModel()
     @StateObject var contactListViewModel: ContactListViewModel = ContactListViewModel()
     
+    init(){
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                HomeView()
+                SignUpView()
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .environmentObject(chatListViewModel)
