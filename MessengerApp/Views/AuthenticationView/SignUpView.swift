@@ -9,14 +9,14 @@ import SwiftUI
 
 struct SignUpView: View {
     
-    @ObservedObject var signUpViewModel = SignUpViewModel()
+    @ObservedObject var authVM : AuthViewModel
     
     var body: some View {
         ScrollView{
             HStack {
                 Text("Sing UP")
                     .font(.largeTitle)
-                .fontWeight(.bold)
+                    .fontWeight(.bold)
                 Spacer()
             }
             
@@ -34,12 +34,12 @@ struct SignUpView: View {
             .frame(width: 100,height: 100)
             
             Group{
-                TextField("Username", text: $signUpViewModel.username)
-                TextField("Email", text: $signUpViewModel.email)
+                TextField("Username", text: $authVM.username)
+                TextField("Email", text: $authVM.email)
                     .textInputAutocapitalization(.never)
-                SecureField("Password", text: $signUpViewModel.password)
+                SecureField("Password", text: $authVM.password)
                     .textContentType(.oneTimeCode)
-                SecureField("Confirm password", text: $signUpViewModel.cPassword)
+                SecureField("Confirm password", text: $authVM.cPassword)
                     .textContentType(.oneTimeCode)
                 
             }.padding(.horizontal)
@@ -50,18 +50,18 @@ struct SignUpView: View {
                 }
             
             
-                
             
-               
-           
-               
             
-                
-                
-                
+            
+            
+            
+            
+            
+            
+            
             
             Button {
-                signUpViewModel.validateData()
+                authVM.validateData()
             } label: {
                 
                 Text("Create Account")
@@ -77,7 +77,7 @@ struct SignUpView: View {
             
             
             
-
+            
         }
         .padding()
         .lineSpacing(30)
@@ -88,7 +88,7 @@ struct SignUpView: View {
                 HStack(spacing:10){
                     Text("Alredy have an account?")
                     Button {
-                        
+                        authVM.signInViewVisible = true
                     } label: {
                         HStack {
                             Text("Sign In")
@@ -97,10 +97,6 @@ struct SignUpView: View {
                 }
             }
         }
-            
+        
     }
-}
-
-#Preview {
-    SignUpView()
 }
