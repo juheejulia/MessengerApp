@@ -9,7 +9,13 @@ import SwiftUI
 
 struct ChatWindowView: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationStack{
+            ScrollView{
+                Text("Here you can start your chatting")
+                }
+            }
+            //Temporary code, need to replace to the name of person
+            .navigationTitle("Chat Window")
     }
 }
 
