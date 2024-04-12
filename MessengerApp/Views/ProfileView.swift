@@ -15,7 +15,6 @@ struct ProfileView: View {
         NavigationView {
             ScrollView {
                 VStack {
-                
                     Image("Profile 4")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -26,26 +25,16 @@ struct ProfileView: View {
                         .font(.system(size: 20))
                         .foregroundColor(.blue)
                         .offset(x:50, y: -60)
-                    
                 }
-                
-                
                 VStack {
                     Text("Profile name")
                         .font(.title2)
                         .fontWeight(.bold)
                         .offset(x: 1, y: -40)
-                    
-                    
                 }
                 .padding(20)
-                               
             }
-            
         }
-        
-        
-        
         List {
             Section {
                 Text("Avatar")
@@ -56,11 +45,9 @@ struct ProfileView: View {
             } header: {
                 Text("Settings")
             }
-            
         }
         .scrollContentBackground(.hidden)
         
-            
         List {
             Section {
                 Text("🔥 Fashion")
@@ -74,14 +61,13 @@ struct ProfileView: View {
         .scrollContentBackground(.hidden)
         
         Button {
-            
         } label: {
             Text("Sign out")
         }
         .tint(.mint)
-        
     }
 }
+
 
 #Preview {
     ProfileView()
