@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct GroupView: View {
+    
     var body: some View {
         
         ScrollView {
