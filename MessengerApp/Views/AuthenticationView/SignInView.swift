@@ -20,6 +20,9 @@ struct SignInView: View {
                         .fontWeight(.bold)
                     Spacer()
                 }
+                //Temporary code to test
+                .navigationBarItems(trailing: NavigationLink("Test", destination: ChatListView())
+                )
                 
                 Spacer(minLength: 200)
                 
@@ -47,13 +50,7 @@ struct SignInView: View {
                         .background(.mint)
                         .cornerRadius(20)
                         .padding()
-                    
                 }
-                
-                
-                
-                
-                
             }
             .padding()
             .lineSpacing(30)
