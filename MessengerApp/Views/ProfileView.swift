@@ -12,9 +12,11 @@ struct ProfileView: View {
     @State var nightMode: Bool = false
     
     var body: some View {
-        NavigationView {
-            ScrollView {
-                VStack {
+        
+        List {
+            HStack {
+                Spacer()
+                VStack(alignment: .center) {
                     Image("Profile 4")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -25,17 +27,15 @@ struct ProfileView: View {
                         .font(.system(size: 20))
                         .foregroundColor(.blue)
                         .offset(x:50, y: -60)
-                }
-                VStack {
                     Text("Profile name")
                         .font(.title2)
                         .fontWeight(.bold)
                         .offset(x: 1, y: -40)
+                        .padding(20)
                 }
-                .padding(20)
+                Spacer()
             }
-        }
-        List {
+            
             Section {
                 Text("Avatar")
                 Text("Notices")
@@ -45,10 +45,6 @@ struct ProfileView: View {
             } header: {
                 Text("Settings")
             }
-        }
-        .scrollContentBackground(.hidden)
-        
-        List {
             Section {
                 Text("🔥 Fashion")
                 Text("🏈 Sports")
@@ -57,14 +53,18 @@ struct ProfileView: View {
             } header: {
                 Text("joined groups")
             }
+            
+            Button {
+            } label: {
+                Text("Sign out")
+            }
+            .tint(.mint)
         }
         .scrollContentBackground(.hidden)
         
-        Button {
-        } label: {
-            Text("Sign out")
-        }
-        .tint(.mint)
+        
+        
+        
     }
 }
 
