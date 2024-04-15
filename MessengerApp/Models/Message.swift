@@ -6,3 +6,16 @@
 //
 
 import Foundation
+
+struct Message {
+    
+    let userUID: String
+    let text: String
+    let photoUrl: String
+    let createdAt: Date
+    
+    func isFromCurrentUser() -> Bool {
+        return false
+    }
+    
+}
