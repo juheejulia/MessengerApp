@@ -9,29 +9,43 @@ import SwiftUI
 
 
 
+
 struct ChatListRowView: View {
     
     let item: MessageItemModel
     
     var body: some View {
-        VStack {
-            HStack {
-                Image(systemName: item.isNewMessage ? "circle.fill" : "" )
-                    .foregroundColor(item.isNewMessage ? .green : nil)
-                Image(systemName: "circle.fill")
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
-                Text(item.name)
-                    .font(.title2)
-                    .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
-                Spacer()
+        HStack (alignment: .top, spacing: 12) {
+            Image(systemName: item.isNewMessage ? "circle.fill" : "" )
+                .foregroundColor(item.isNewMessage ? .green : nil)
+            Image(systemName: "person.circle.fill")
+                .resizable()
+                .frame(width: 45, height: 45)
+                .foregroundColor(Color(.systemGray4))
+            VStack(alignment: .leading, spacing: 4) {
+                //Text(item.name)   This will be used in acture
+                Text("Pippi Longstocking")
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                
+                //Text(item.body)    This will be used in acture
+                Text("This is test message that is quite long so we can see how it is viewed.")
+                    .font(.subheadline)
+                    .foregroundColor(.gray)
+                    .lineLimit(1)
+                    .frame(maxWidth: UIScreen.main.bounds.width - 100, alignment: .leading)
             }
-            Text(item.body)
-                .fontWeight(.regular)
-                .foregroundColor(.gray)
-                .position(CGPoint(x: 72.0, y: 10.0))
+            
+            HStack {
+                Text("Yesterday") //It needs to replace real time stamp
+                
+                Image(systemName: "chevron.right")
+            }
+            .font(.footnote)
+            .foregroundColor(.gray)
         }
-        //.padding()
-        .padding(.vertical, 8)
+        .padding(.horizontal)
+        .frame(height: 55)
     }
 }
 
