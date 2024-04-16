@@ -9,6 +9,7 @@ import SwiftUI
 
 
 
+
 struct ChatListRowView: View {
     
     let item: MessageItemModel
