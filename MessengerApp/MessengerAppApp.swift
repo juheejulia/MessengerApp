@@ -21,7 +21,7 @@ struct MessengerAppApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                AuthView()
+                HomeView()
             }
             .navigationViewStyle(StackNavigationViewStyle())
             .environmentObject(chatListViewModel)

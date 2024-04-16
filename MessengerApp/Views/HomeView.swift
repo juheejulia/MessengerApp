@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct HomeView: View {
     var body: some View {
-            
+        if Auth.auth().currentUser?.uid != nil {
             TabView{
                 ContactListView()
                     .tabItem {
@@ -24,7 +25,9 @@ struct HomeView: View {
                         Label("Profile", systemImage:"person.circle")
                     }
             }
-        //.toolbar(.visible, for: .tabBar)
+        } else {
+            AuthView()
+        }
     }
 }
 
