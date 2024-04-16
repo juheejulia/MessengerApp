@@ -38,6 +38,7 @@
 		7C0839A62BCDC6C20011B4AB /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0839A52BCDC6C20011B4AB /* MessageView.swift */; };
 		7C0839A82BCDC6F10011B4AB /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0839A72BCDC6F10011B4AB /* Message.swift */; };
 		7C0839AA2BCDCAE50011B4AB /* DateExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0839A92BCDCAE50011B4AB /* DateExtention.swift */; };
+		7C0839AC2BCE7EA50011B4AB /* GroupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C0839AB2BCE7EA50011B4AB /* GroupView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		7C0839A52BCDC6C20011B4AB /* MessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
 		7C0839A72BCDC6F10011B4AB /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		7C0839A92BCDCAE50011B4AB /* DateExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtention.swift; sourceTree = "<group>"; };
+		7C0839AB2BCE7EA50011B4AB /* GroupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroupView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				34E3830E2BBE9BF30055F471 /* ChatListView.swift */,
 				342974462BBECBD400ED37CD /* ChatListRowView.swift */,
 				7C0839A52BCDC6C20011B4AB /* MessageView.swift */,
+				7C0839AB2BCE7EA50011B4AB /* GroupView.swift */,
 				34E383102BBE9C0A0055F471 /* ChatWindowView.swift */,
 				34E383122BBE9C210055F471 /* ContactListView.swift */,
 				3429744A2BBEF36F00ED37CD /* ContactListRowView.swift */,
@@ -266,6 +269,7 @@
 			files = (
 				3429744B2BBEF36F00ED37CD /* ContactListRowView.swift in Sources */,
 				342974492BBED07100ED37CD /* MessageItemModel.swift in Sources */,
+				7C0839AC2BCE7EA50011B4AB /* GroupView.swift in Sources */,
 				34E383152BBE9C330055F471 /* ProfileView.swift in Sources */,
 				34E3830D2BBE9BD70055F471 /* SignUpView.swift in Sources */,
 				34E383132BBE9C210055F471 /* ContactListView.swift in Sources */,

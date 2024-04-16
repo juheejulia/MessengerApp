@@ -10,7 +10,6 @@ import SwiftUI
 struct MessageView: View {
     
     var message: Message
-    var isCurrentUser: Bool
     
     var body: some View {
         VStack(spacing:5) {
@@ -35,5 +34,5 @@ struct MessageView: View {
 }
 
 #Preview {
-    MessageView(message: Message(userUID: "ujnaoeflknmcöx", text: "Hello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo meet you", photoUrl: "some url", createdAt: Date.now), isCurrentUser: true)
+    MessageView(message: Message(userUID: "ujnaoeflknmcöx", text: "Hello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo meet you", photoUrl: "some url", createdAt: Date.now))
 }

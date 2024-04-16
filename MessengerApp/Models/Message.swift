@@ -15,7 +15,7 @@ struct Message {
     let createdAt: Date
     
     func isFromCurrentUser() -> Bool {
-        return false
+        return true
     }
     
 }
