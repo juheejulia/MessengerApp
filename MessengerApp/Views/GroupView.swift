@@ -7,51 +7,32 @@
 
 import SwiftUI
 
+struct Activity {
+    let usersUID: [String]?
+    let messages: [Message]?
+    let title: String
+    let lastMessage: String
+    let slogan: String
+   
+}
+
 struct GroupView: View {
+    
+    @State var activities: [Activity] = [
+        Activity(usersUID: nil, messages: nil, title: "Sports", lastMessage: "What a beautiful game with arsenal yesterday", slogan: "COME ON IN"),
+        Activity(usersUID: nil, messages: nil, title: "Sports", lastMessage: "What a beautiful game with arsenal yesterday", slogan: "COME ON IN"),
+        Activity(usersUID: nil, messages: nil, title: "Sports", lastMessage: "What a beautiful game with arsenal yesterday", slogan: "COME ON IN"),
+        Activity(usersUID: nil, messages: nil, title: "Sports", lastMessage: "What a beautiful game with arsenal yesterday", slogan: "COME ON IN")
+    ]
     
     var body: some View {
         
         ScrollView {
-            VStack(alignment: .leading, spacing: 8) {
-                Text("Sports")
-                    .font(.title2)
-                    .frame(maxWidth: 170, alignment: .leading)
-                Text("-What a beuty goal by the Rangers last night!")
-                    .opacity(0.7)
-                    .font(.subheadline)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                Text("Come on in!".uppercased())
-                    .font(.footnote)
-                Spacer()
-                HStack {
-                    
-                    ForEach(Array([1,2,4].shuffled().enumerated()),
-                            id: \.offset) { index, number in
-                        Image("Profile \(number)")
-                            .resizable()
-                            .frame(width: 40, height: 40)
-                            .mask(Circle())
-                            .offset(x: CGFloat((index * -20)))
-                        
-                    }
-                    Button {
-                        
-                    } label: {
-                        Text("Join")
-                    }
-                    .buttonStyle(.bordered)
-                    .foregroundColor(.white)
-                    .offset(x:95)
-                    
-                }
+            ForEach(activities.indices, id:\.self) { activity in
+                ActivityCardView(title: "Sports", content: "What a beautiful game with arsenal yesterday", slogan: "COME ON IN", color: .mint)
             }
-            .foregroundColor(.white)
-            .padding(30)
-            .frame(width: 350, height: 190)
-            .background(.linearGradient(colors: [.mint,.mint.opacity(0.2)], startPoint: .topLeading, endPoint: .bottomTrailing))
-            .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-            .shadow(color: .gray.opacity(0.3), radius: 8, x:0, y:12)
-            .shadow(color: .gray.opacity(0.3), radius: 2, x:0, y:1)
+            
+            
             
             VStack(alignment: .leading, spacing: 8) {
                 Text("Games")
@@ -175,4 +156,54 @@ struct GroupView: View {
 
 #Preview {
     GroupView()
+}
+
+struct ActivityCardView: View {
+    var title: String
+    var content: String
+    var slogan: String
+    var color: Color
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(title)
+                .font(.title2)
+                .frame(maxWidth: 170, alignment: .leading)
+            Text(content)
+                .opacity(0.7)
+                .font(.subheadline)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            Text(slogan.uppercased())
+                .font(.footnote)
+            Spacer()
+            HStack {
+                
+                ForEach(Array([1,2,4].shuffled().enumerated()),
+                        id: \.offset) { index, number in
+                    Image("Profile \(number)")
+                        .resizable()
+                        .frame(width: 40, height: 40)
+                        .mask(Circle())
+                        .offset(x: CGFloat((index * -20)))
+                    
+                }
+                Button {
+                    
+                } label: {
+                    Text("Join")
+                }
+                .buttonStyle(.bordered)
+                .foregroundColor(.white)
+                .offset(x:95)
+                
+            }
+        }
+        .foregroundColor(.white)
+        .padding(30)
+        .frame(width: 350, height: 190)
+        .background(.linearGradient(colors: [color,color.opacity(0.2)], startPoint: .topLeading, endPoint: .bottomTrailing))
+        .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
+        .shadow(color: .gray.opacity(0.3), radius: 8, x:0, y:12)
+        .shadow(color: .gray.opacity(0.3), radius: 2, x:0, y:1)
+    }
 }

@@ -17,6 +17,8 @@ class AuthViewModel: ObservableObject {
     @Published var password = ""
     @Published var cPassword = ""
     
+    
+    
     func signInUser(){
         Auth.auth().signIn(withEmail: self.email, password: self.password) { result, error in
             if let error = error {
