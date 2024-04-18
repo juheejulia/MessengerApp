@@ -25,7 +25,8 @@ class AuthViewModel: ObservableObject {
                 print("Failed to sign in user \(String(describing: error)) ")
                 return
             }
-            print("Succersfuly signed user id:\(result?.user.uid ?? "")")
+            print("Successfully signed user id:\(result?.user.uid ?? "")")
+            HomeViewModel.shared.isUserLoggedIn = true
         }
     }
     
@@ -35,7 +36,7 @@ class AuthViewModel: ObservableObject {
                 print("Failed to create user \(String(describing: error)) ")
                 return
             }
-            print("Succersfuly created user id:\(result?.user.uid ?? "")")
+            print("Successfully created user id:\(result?.user.uid ?? "")")
         }
     }
     
@@ -59,4 +60,5 @@ class AuthViewModel: ObservableObject {
         
         print(alertMessage)
     }
+    
 }
