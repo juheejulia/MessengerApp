@@ -15,9 +15,10 @@ struct SignInView: View {
         NavigationView {
             ScrollView{
                 HStack {
-                    Text("Sing In")
+                    Text("Sign In")
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                        .foregroundStyle(Color.mintColor)
                     Spacer()
                 }
                 //Temporary code to test
@@ -39,9 +40,9 @@ struct SignInView: View {
                         .foregroundColor(.white)
                 }
                 
-                Button {
+                Button (action: {
                     authVM.signInUser()
-                } label: {
+                }, label: {
                     
                     Text("Sign in")
                         .padding(.horizontal,30)
@@ -50,7 +51,7 @@ struct SignInView: View {
                         .background(.mint)
                         .cornerRadius(20)
                         .padding()
-                }
+                })
             }
             .padding()
             .lineSpacing(30)
