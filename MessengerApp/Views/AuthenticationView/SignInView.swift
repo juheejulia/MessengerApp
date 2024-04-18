@@ -40,9 +40,9 @@ struct SignInView: View {
                         .foregroundColor(.white)
                 }
                 
-                Button {
+                Button (action: {
                     authVM.signInUser()
-                } label: {
+                }, label: {
                     
                     Text("Sign in")
                         .padding(.horizontal,30)
@@ -51,7 +51,7 @@ struct SignInView: View {
                         .background(.mint)
                         .cornerRadius(20)
                         .padding()
-                }
+                })
             }
             .padding()
             .lineSpacing(30)
