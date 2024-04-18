@@ -18,10 +18,10 @@ struct ChatListRowView: View {
         HStack (alignment: .top, spacing: 12) {
             Image(systemName: item.isNewMessage ? "circle.fill" : "" )
                 .foregroundColor(item.isNewMessage ? .green : nil)
-            Image(systemName: "person.circle.fill")
+            Image("Profile 1")
                 .resizable()
-                .frame(width: 45, height: 45)
-                .foregroundColor(Color(.systemGray4))
+                .frame(width: 40, height: 40)
+                .mask(Circle())
             VStack(alignment: .leading, spacing: 4) {
                 //Text(item.name)   This will be used in acture
                 Text("Pippi Longstocking")

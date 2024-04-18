@@ -14,9 +14,10 @@ struct SignUpView: View {
     var body: some View {
         ScrollView{
             HStack {
-                Text("Sing UP")
+                Text("Sign Up")
                     .font(.largeTitle)
                     .fontWeight(.bold)
+                    .foregroundStyle(Color.red.opacity(0.5))
                 Spacer()
             }
             
@@ -30,6 +31,7 @@ struct SignUpView: View {
                         Circle()
                             .stroke(lineWidth: 3)
                     }
+                    .foregroundColor(.red.opacity(0.5))
             }
             .frame(width: 100,height: 100)
             
@@ -49,17 +51,6 @@ struct SignUpView: View {
                         .foregroundColor(.white)
                 }
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
             Button {
                 authVM.validateData()
             } label: {
@@ -73,10 +64,6 @@ struct SignUpView: View {
                     .padding()
                 
             }
-            
-            
-            
-            
             
         }
         .padding()
@@ -99,4 +86,8 @@ struct SignUpView: View {
         }
         
     }
+}
+
+#Preview {
+    AuthView()
 }

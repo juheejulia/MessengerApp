@@ -38,13 +38,14 @@ struct AddContactView: View {
                     .foregroundColor(.white)
                     .frame(height: 55)
                     .frame(maxWidth: .infinity)
-                    .background(Color.accentColor)
+                    .background(Color.mint)
                     .cornerRadius(10)
             })
         }
         .padding(18)
         .navigationTitle("Add Contact")
         .alert(isPresented: $showAlert, content: getAlert)
+        
     }
     
     func saveButtonPressed() {

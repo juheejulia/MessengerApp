@@ -10,7 +10,8 @@ import Firebase
 
 struct HomeView: View {
     var body: some View {
-        if Auth.auth().currentUser?.uid != nil {
+       // if Auth.auth().currentUser?.uid != nil {
+        if HomeViewModel.shared.isUserLoggedIn {
             TabView{
                 ContactListView()
                     .tabItem {
