@@ -15,9 +15,10 @@ struct SignInView: View {
         NavigationView {
             ScrollView{
                 HStack {
-                    Text("Sing In")
+                    Text("Sign In")
                         .font(.largeTitle)
                         .fontWeight(.bold)
+                        .foregroundStyle(Color.mintColor)
                     Spacer()
                 }
                 //Temporary code to test
