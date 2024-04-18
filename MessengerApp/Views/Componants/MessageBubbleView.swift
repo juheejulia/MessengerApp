@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MessageView: View {
+struct MessageBubbleView: View {
     
     var message: Message
     
@@ -34,5 +34,5 @@ struct MessageView: View {
 }
 
 #Preview {
-    MessageView(message: Message(userUID: "ujnaoeflknmcöx", text: "Hello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo meet you", photoUrl: "some url", createdAt: Date.now))
+    MessageBubbleView(message: Message(userUID: "ujnaoeflknmcöx", text: "Hello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo ello i am genti froo meet you", photoUrl: "some url", createdAt: Date.now))
 }
