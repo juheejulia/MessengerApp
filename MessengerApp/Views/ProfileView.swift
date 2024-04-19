@@ -59,19 +59,14 @@ struct ProfileView: View {
                 }
                 
                 Button(action:  {
+                    authViewModel.signOut()
                     
-                    do{
-                        try Auth.auth().signOut()
-                        print("User signed out")
-                        HomeViewModel.shared.isUserLoggedIn = false
-                    }catch{
-                        print("Error while signing out!")
-                    }
-                    authViewModel.signInViewVisible = true
                 }) {
                     Text("Sign Out")
                 }
                 .tint(.mintColor)
+                .frame(maxWidth: .infinity)
+                
                 
             }
             .scrollContentBackground(.hidden)

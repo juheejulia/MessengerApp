@@ -30,7 +30,7 @@ struct MessageFieldView: View {
         .padding(.horizontal)
         .padding(.vertical, 10)
         .background(.gray.opacity(0.3))
-        .cornerRadius(50)
+        .cornerRadius(20)
         .padding()
     }
 }
