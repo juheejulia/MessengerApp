@@ -40,6 +40,10 @@ struct SignInView: View {
                         .foregroundColor(.white)
                 }
                 
+                
+                Text("Forgot password?")
+                    .foregroundStyle(Color.mintColor)
+                
                 Button (action: {
                     authVM.signInUser()
                 }, label: {
