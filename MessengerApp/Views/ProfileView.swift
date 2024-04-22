@@ -59,7 +59,7 @@ struct ProfileView: View {
                 }
                 
                 Button(action:  {
-                    authViewModel.signOut()
+                    //authViewModel.signOut
                     
                 }) {
                     Text("Sign Out")

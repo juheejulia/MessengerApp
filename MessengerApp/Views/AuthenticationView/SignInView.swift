@@ -22,8 +22,7 @@ struct SignInView: View {
                     Spacer()
                 }
                 //Temporary code to test
-                .navigationBarItems(trailing: NavigationLink("Test", destination: ChatListView())
-                )
+                
                 
                 Spacer(minLength: 200)
                 
