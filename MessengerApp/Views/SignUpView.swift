@@ -14,15 +14,14 @@ struct SignUpView: View {
     var body: some View {
         ScrollView{
             HStack {
-                Text("Sign Up")
+                Text("Sign up")
                     .font(.largeTitle)
                     .fontWeight(.bold)
-                    .foregroundStyle(Color.red.opacity(0.5))
                 Spacer()
             }
             
             Button {
-                
+                //open photosUI och ladda upp en bild för att sedan spara det i firestore.
             } label: {
                 Image(systemName: "person.fill")
                     .font(.system(size: 40))
@@ -31,7 +30,6 @@ struct SignUpView: View {
                         Circle()
                             .stroke(lineWidth: 3)
                     }
-                    .foregroundColor(.red.opacity(0.5))
             }
             .frame(width: 100,height: 100)
             
@@ -52,7 +50,7 @@ struct SignUpView: View {
                 }
             
             Button {
-                authVM.validateData()
+                Task {try await authVM.createNewAccount()}
             } label: {
                 
                 Text("Create Account")
@@ -86,8 +84,4 @@ struct SignUpView: View {
         }
         
     }
-}
-
-#Preview {
-    AuthView()
 }
