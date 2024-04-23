@@ -15,10 +15,15 @@ struct ContactListRowView: View {
         VStack {
             HStack {
                 //It needs to change to avatar
-                Image(systemName: "circle.fill")
-                    .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
+                Image("Profile 5")
+                    .resizable()
+                    .frame(width: 40, height: 40)
+                    .mask(Circle())
+                    .padding()
+                //Image(systemName: "circle.fill")
+                //  .foregroundColor(/*@START_MENU_TOKEN@*/.blue/*@END_MENU_TOKEN@*/)
                 Text(item.name)
-                    .font(.title2)
+                    .font(.title3)
                     .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                 //Text(item.phoneNumber)
                 Spacer()

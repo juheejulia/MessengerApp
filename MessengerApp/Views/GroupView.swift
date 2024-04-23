@@ -21,7 +21,7 @@ struct GroupView: View {
     @State var activities: [Activity] = [
         Activity(usersUID: nil, messages: nil, title: "Sports", lastMessage: "What a beautiful game with arsenal yesterday", slogan: "COME ON IN"),
         Activity(usersUID: nil, messages: nil, title: "Sports", lastMessage: "What a beautiful game with arsenal yesterday", slogan: "COME ON IN"),
-        Activity(usersUID: nil, messages: nil, title: "Sports", lastMessage: "What a beautiful game with arsenal yesterday", slogan: "COME ON IN"),
+        Activity(usersUID: nil, messages: nil, title: "Sports", lastMessage: "What a ", slogan: "COME ON IN"),
         Activity(usersUID: nil, messages: nil, title: "Sports", lastMessage: "What a beautiful game with arsenal yesterday", slogan: "COME ON IN")
     ]
     
@@ -81,7 +81,7 @@ struct GroupView: View {
                     .opacity(0.7)
                     .font(.subheadline)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                Text("SHare your style!".uppercased())
+                Text("Share your style!".uppercased())
                     .font(.footnote)
                 Spacer()
                 HStack {

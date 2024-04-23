@@ -10,6 +10,7 @@ import SwiftUI
 struct MessageBubbleView: View {
     
     var message: Message
+    @State private var showTime = false
     
     var body: some View {
         
@@ -36,10 +37,24 @@ struct MessageBubbleView: View {
                     .background(message.received ? Color.peachColor.opacity(0.5) : Color.mint.opacity(0.3))
                     .cornerRadius(15)
             }
-            .frame(minWidth: 250, alignment: message.received ? .leading : .trailing)
-            .padding(message.received ? .leading : .trailing)
-            .padding(.horizontal, 10)
+            .frame(maxWidth: 250, alignment: message.received ? .leading : .trailing)
+            .onTapGesture {
+                showTime.toggle()
+            }
+            
+            if showTime {
+                Text("\(message.createdAt.formatted(.dateTime.hour().minute()))")
+                    .font(.caption2)
+                    .foregroundColor(.gray)
+                    .padding(message.received ? .leading: .trailing, 25)
+            }
+            
+            
+            
         }
+        .frame(maxWidth: .infinity, alignment: message.received ? .leading: .trailing)
+        .padding(message.received ? .leading : .trailing)
+        .padding(.horizontal, 10)
     }
 }
 
