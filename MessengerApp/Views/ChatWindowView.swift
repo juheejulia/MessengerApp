@@ -3,35 +3,74 @@
 //  MessengerApp
 //
 //  Created by Juhee Kang Johansson on 2024-04-04.
-//
+//UserRowView().background(.mint.opacity(0.3))
 
 import SwiftUI
 
 struct ChatWindowView: View {
     
-    @StateObject var messagesManager = MessagesManager()
+    @StateObject var viewModel : ChatWindowViewModel
+    let user : User
+    
+    init(user:User) {
+        self.user = user
+        self._viewModel = StateObject(wrappedValue: ChatWindowViewModel(user: user))
+    }
+    
+   
     
     var body: some View {
         VStack {
-            VStack {
-                UserRowView()
-                    .background(.mint.opacity(0.3))
-                ScrollView{
-                    ForEach(messagesManager.messages, id: \.id) { message in
-                        MessageBubbleView(message: message)
-                    }
+            HStack(spacing: 20) {
+                CircularProfileView(user: user, size: .medium)
+                VStack(alignment: .leading) {
+                    Text(user.username)
+                        .font(.title).bold()
+                    
                 }
-                .padding(.top, 10)
-                .background(.white)
-                //.cornerRadius(30, corners: [.topLeft, .topRight])
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
-            //.background()
-            MessageFieldView()
-                .environmentObject(messagesManager)
+            .padding()
+            ScrollView{
+                ForEach(viewModel.messages) { message in
+                    ChatMessageCell(message: message)
+                }
+               
+            }
+            Spacer()
+            HStack {
+                
+                TextField("Enteryour message here", text: $viewModel.messageText)
+                    .onSubmit {
+                        if !viewModel.messageText.isEmpty {
+                            viewModel.sendMessage()
+                        }
+                    }
+                    .autocorrectionDisabled()
+                    
+                Button {
+                    if !viewModel.messageText.isEmpty {
+                        viewModel.sendMessage()
+                    }
+                } label: {
+                    Image(systemName: "paperplane.fill")
+                        .foregroundColor(.white)
+                        .padding(10)
+                        .background(.mint)
+                        .cornerRadius(50)
+                }
+            }
+            .padding(.horizontal)
+            .padding(.vertical, 10)
+            .background(.gray.opacity(0.3))
+            .cornerRadius(20)
+            .padding()
         }
     }
 }
 
 #Preview {
-    ChatWindowView()
+    ChatWindowView( user: User.MOCK_USER)
 }
+
+

@@ -7,11 +7,12 @@
 
 import SwiftUI
 import Firebase
+import PhotosUI
 
 struct ProfileView: View {
    
-    @State private var navigateToLogin = false
-    @StateObject var authViewModel = AuthViewModel()
+    @StateObject var viewModel = ProfileViewModel()
+    let user : User
     @State var nightMode: Bool = false
     
     var body: some View {
@@ -21,17 +22,28 @@ struct ProfileView: View {
                 HStack {
                     Spacer()
                     VStack(alignment: .center) {
-                        Image("Profile 4")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .frame(width: 120, height: 120)
-                            .mask(Circle())
-                            .padding(20)
+                        PhotosPicker(selection: $viewModel.selectedItem) {
+                            if let profileImage = viewModel.profileImage {
+                                profileImage
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 80, height: 80)
+                                    .clipShape(Circle())
+                            } else {
+                                Image("Profile 4")
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                                    .frame(width: 120, height: 120)
+                                    .mask(Circle())
+                                    .padding(20)
+                            }
+                        }
+                        
                         Image(systemName: "checkmark.seal.fill")
                             .font(.system(size: 20))
                             .foregroundColor(.blue)
                             .offset(x:50, y: -60)
-                        Text("Profile name")
+                        Text(user.username)
                             .font(.title2)
                             .fontWeight(.bold)
                             .offset(x: 1, y: -40)
@@ -59,7 +71,7 @@ struct ProfileView: View {
                 }
                 
                 Button(action:  {
-                    //authViewModel.signOut
+                    AuthService.shared.signOut()
                     
                 }) {
                     Text("Sign Out")
@@ -81,5 +93,5 @@ struct ProfileView: View {
 
 
 #Preview {
-    ProfileView()
+    ProfileView( user: User.MOCK_USER)
 }

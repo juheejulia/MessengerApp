@@ -6,48 +6,70 @@
 //
 
 import Foundation
+import Combine
+import Firebase
 
 class ChatListViewModel: ObservableObject {
     
-    @Published var items: [MessageItemModel] = [] {
-        didSet {
-            saveItems()
-        }
-    }
+    @Published var currentUser: User?
+    @Published var recentMessages = [Message]()
     
-    let itemsKey: String = "items_list"
+    private let service = InboxService()
     
-    init() {
-        getItem()
-    }
+    private var cancellables = Set<AnyCancellable>()
     
-    func getItem() {
-        guard
-            let data = UserDefaults.standard.data(forKey: itemsKey),
-            let savedItems = try? JSONDecoder().decode([MessageItemModel].self, from: data)
-        else { return }
+    init(){
+        setupSubscibers()
+        service.observeRecentMessages()
         
-        self.items = savedItems
     }
     
-    func deleteItem(indexSet: IndexSet) {
-        items.remove(atOffsets: indexSet)
+    private func setupSubscibers(){
+        UserService.shared.$currentUser.sink { [weak self] user in
+            self?.currentUser = user
+        }.store(in: &cancellables)
+        
+        service.$documentChanges.sink { [weak self] changes in
+            self?.loadInitialMessages(fromChanges: changes)
+        }.store(in: &cancellables)
     }
     
-    func addItem(name: String, body: String) {
-        let newItem = MessageItemModel(name: name, body: body, isNewMessage: false)
-        items.append(newItem)
-    }
-    
-    func updateItem(item: MessageItemModel) {
-        if let index = items.firstIndex(where: {$0.id == item.id}) {
-            items[index] = item.updateCompletion()
+    private func loadInitialMessages(fromChanges changes: [DocumentChange]) {
+        
+        var messages = changes.compactMap({try? $0.document.data(as: Message.self)})
+        
+        
+        
+        
+        for i in 0 ..< messages.count {
+            
+            let recentMessage = messages[i]
+            
+            UserService.fetchUser(withUid: recentMessage.chatPartnerId) { user in
+                messages[i].user = user
+                if self.recentMessages.contains(where: {$0.chatPartnerId == messages[i].chatPartnerId}) {
+                    guard let index = self.recentMessages.firstIndex(where: {$0.chatPartnerId == messages[i].chatPartnerId}) else {return}
+                    self.recentMessages.remove(at: index)
+                }
+                self.recentMessages.append(messages[i])
+                self.recentMessages.sort(by: {$0.timeStamp.dateValue() > $1.timeStamp.dateValue()})
+                
+            }
         }
     }
     
-    func saveItems() {
-        if let encodedData = try? JSONEncoder().encode(items) {
-            UserDefaults.standard.set(encodedData, forKey: itemsKey)
+    private func filterArray(messages: [Message]){
+        var dublicatesId : [String] = []
+        var checkMessage = messages.first
+        for message in messages {
+            if message == checkMessage {
+                dublicatesId.append(checkMessage!.chatPartnerId)
+                checkMessage = message
+            } else {
+                checkMessage = message
+            }
         }
+        
+        
     }
 }
