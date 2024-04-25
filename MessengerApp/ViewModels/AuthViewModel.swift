@@ -14,35 +14,17 @@ class AuthViewModel: ObservableObject {
     
     @Published var username = ""
     @Published var email = ""
-    @Published var password = ""
-    @Published var cPassword = ""
+    @Published var password = "123456"
+    @Published var cPassword = "123456"
     
     
     
-    func signInUser(){
-        Auth.auth().signIn(withEmail: self.email, password: self.password) { result, error in
-            if let error = error {
-                print("Failed to sign in user \(String(describing: error)) ")
-                return
-            }
-            print("Successfully signed user id:\(result?.user.uid ?? "")")
-            HomeViewModel.shared.isUserLoggedIn = true
-        }
+    func signInUser() async throws {
+        try await AuthService.shared.signInUser(withEmail: email, password: password)
     }
     
-    func createNewAccount(email:String,username:String, password:String){
-        Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            if let error = error {
-                print("Failed to create user \(String(describing: error)) ")
-                return
-            }
-            print("Successfully created user id:\(result?.user.uid ?? "")")
-        }
-    }
-    
-    func validateData() {
+    func createNewAccount() async throws{
         var alertMessage = "User registered succesfully"
-        
         
         if (self.username.isEmpty) {
             alertMessage = "Enter a username!"
@@ -55,10 +37,9 @@ class AuthViewModel: ObservableObject {
         } else if (self.cPassword != self.password) {
             alertMessage = "Password doesn't match!"
         } else {
-            createNewAccount(email: self.email, username: self.username, password: self.password)
+            try await AuthService.shared.createNewAccount(email: email, username: username, password: password)
         }
         
         print(alertMessage)
     }
-    
 }
