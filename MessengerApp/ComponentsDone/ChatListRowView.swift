@@ -29,11 +29,7 @@ struct ChatListRowView: View {
             }
             .font(.footnote)
             .foregroundColor (.gray)
-            
         }
-        
         .frame(height: 72)
     }
-    
-    
 }

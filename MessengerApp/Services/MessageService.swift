@@ -36,10 +36,7 @@ struct MessageService {
         chatPartnerRef.document(messageId).setData(messageData)
     }
     
-    
-    
     static func observeMessages(chatPartner: User, completion: @escaping ([Message]) -> Void) {
-        
         
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         let chatPartnerId = chatPartner.id
@@ -49,8 +46,6 @@ struct MessageService {
             .collection (chatPartnerId)
             .order(by: "timeStamp", descending: false)
         
-        
-        
         query.addSnapshotListener { snapshot, _ in
             
             guard let changes = snapshot?.documentChanges.filter({$0.type == .added }) else {return}
@@ -59,10 +54,7 @@ struct MessageService {
             for (index, message) in messages.enumerated() where message.fromId != currentUid {
                 messages[index].user = chatPartner
             }
-            
             completion(messages)
         }
     }
-    
-    
 }

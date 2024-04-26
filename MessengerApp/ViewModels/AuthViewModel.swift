@@ -17,8 +17,6 @@ class AuthViewModel: ObservableObject {
     @Published var password = "123456"
     @Published var cPassword = "123456"
     
-    
-    
     func signInUser() async throws {
         try await AuthService.shared.signInUser(withEmail: email, password: password)
     }

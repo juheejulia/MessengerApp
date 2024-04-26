@@ -17,8 +17,6 @@ struct ChatWindowView: View {
         self._viewModel = StateObject(wrappedValue: ChatWindowViewModel(user: user))
     }
     
-   
-    
     var body: some View {
         VStack {
             HStack(spacing: 20) {
@@ -26,20 +24,19 @@ struct ChatWindowView: View {
                 VStack(alignment: .leading) {
                     Text(user.username)
                         .font(.title).bold()
-                    
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding()
+            
             ScrollView{
                 ForEach(viewModel.messages) { message in
                     ChatMessageCell(message: message)
                 }
-               
             }
             Spacer()
+            
             HStack {
-                
                 TextField("Enteryour message here", text: $viewModel.messageText)
                     .onSubmit {
                         if !viewModel.messageText.isEmpty {
@@ -72,5 +69,3 @@ struct ChatWindowView: View {
 #Preview {
     ChatWindowView( user: User.MOCK_USER)
 }
-
-

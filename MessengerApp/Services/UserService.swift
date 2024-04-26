@@ -24,8 +24,6 @@ class UserService {
         self.currentUser = user
     }
     
-    
-    
     static func fetchAllUsers() async throws -> [User] {
         let snapshot = try await Firestore.firestore().collection("users").getDocuments()
         let users = snapshot.documents.compactMap({try? $0.data(as: User.self)})

@@ -78,19 +78,11 @@ struct ProfileView: View {
                 }
                 .tint(.mintColor)
                 .frame(maxWidth: .infinity)
-                
-                
             }
             .scrollContentBackground(.hidden)
-        
-            
-            
         }
     }
-    
-
 }
-
 
 #Preview {
     ProfileView( user: User.MOCK_USER)

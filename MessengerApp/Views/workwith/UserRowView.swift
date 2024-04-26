@@ -4,7 +4,7 @@
 //
 //  Created by Juhee Kang Johansson on 2024-04-17.
 //
-
+/*
 import SwiftUI
 
 struct UserRowView: View {
@@ -41,3 +41,4 @@ struct UserRowView: View {
     UserRowView()
         .background(.mint.opacity(0.3))
 }
+*/

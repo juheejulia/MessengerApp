@@ -42,11 +42,7 @@ struct ChatService {
         recentPartnerRef.setData(messageData)
     }
     
-    
-    
     func observeMessages(completion: @escaping ([Message]) -> Void) {
-        
-        
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
         let chatPartnerId = chatPartner.id
         print(chatPartnerId)
@@ -54,8 +50,6 @@ struct ChatService {
             .document(currentUid)
             .collection (chatPartnerId)
             .order(by: "timeStamp", descending: false)
-        
-        
         
         query.addSnapshotListener { snapshot, _ in
             
@@ -69,6 +63,4 @@ struct ChatService {
             completion(messages)
         }
     }
-    
-    
 }

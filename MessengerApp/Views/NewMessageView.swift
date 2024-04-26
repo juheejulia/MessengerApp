@@ -57,7 +57,7 @@ struct NewMessageView: View {
                     }
                     .foregroundColor(.black)
                 }
-        }
+            }
         }
     }
 }
