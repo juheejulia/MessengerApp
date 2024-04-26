@@ -19,7 +19,6 @@ struct SignUpView: View {
                     .fontWeight(.bold)
                 Spacer()
             }
-            
             Button {
                 //open photosUI och ladda upp en bild för att sedan spara det i firestore.
             } label: {
@@ -60,9 +59,7 @@ struct SignUpView: View {
                     .background(Color.red.opacity(0.5))
                     .cornerRadius(20)
                     .padding()
-                
             }
-            
         }
         .padding()
         .lineSpacing(30)
@@ -82,6 +79,5 @@ struct SignUpView: View {
                 }
             }
         }
-        
     }
 }

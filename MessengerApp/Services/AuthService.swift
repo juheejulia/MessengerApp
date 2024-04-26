@@ -23,7 +23,6 @@ class AuthService {
         print("Current loged in user id \(userSession?.uid ?? "no one")")
     }
     
-    
     @MainActor
     func signInUser(withEmail email: String, password: String) async throws {
         
@@ -34,9 +33,7 @@ class AuthService {
         } catch {
             print("Failed to sign in user \(String(describing: error)) ")
         }
-        
     }
-    
     
     @MainActor
     func createNewAccount(email:String,username:String, password:String) async throws {
@@ -51,8 +48,6 @@ class AuthService {
         }
     }
     
-    
-    
     func signOut() {
         do{
             try Auth.auth().signOut()
@@ -63,7 +58,6 @@ class AuthService {
             print("failed to sign out user (\(error.localizedDescription)")
         }
     }
-    
     
     @MainActor
     func uploadUserData(email: String, username: String, id: String) async throws{
@@ -89,5 +83,4 @@ class AuthService {
             print("failed to sign out user (\(error.localizedDescription)")
         }
     }
-    
 }

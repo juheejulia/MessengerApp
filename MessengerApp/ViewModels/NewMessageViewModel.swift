@@ -20,8 +20,7 @@ class NewMessageViewModel: ObservableObject {
     func fetchUsers() async throws {
         guard let currentUid = Auth.auth().currentUser?.uid else {return}
         let fetchedUsers = try await UserService.fetchAllUsers()
-        self.users = fetchedUsers.filter({$0.id != currentUid})
-                
+        self.users = fetchedUsers.filter({$0.id != currentUid})    
     }
 }
 

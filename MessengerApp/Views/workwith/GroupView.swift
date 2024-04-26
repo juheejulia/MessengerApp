@@ -4,7 +4,7 @@
 //
 //  Created by Christofer Karlsson on 2024-04-12.
 //
-
+/*
 import SwiftUI
 
 struct Activity {
@@ -207,3 +207,4 @@ struct ActivityCardView: View {
         .shadow(color: .gray.opacity(0.3), radius: 2, x:0, y:1)
     }
 }
+*/

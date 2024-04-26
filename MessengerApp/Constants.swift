@@ -11,5 +11,4 @@ import Firebase
 struct FirebaseConstants {
     static let userCollection = Firestore.firestore().collection("users")
     static let messagesCollection = Firestore.firestore().collection("messages")
-    
 }

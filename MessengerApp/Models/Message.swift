@@ -11,7 +11,6 @@ import FirebaseFirestoreSwift
 
 struct Message: Identifiable, Codable, Hashable {
     
-    
     @DocumentID var messageId: String?
     
     let fromId: String

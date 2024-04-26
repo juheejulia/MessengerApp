@@ -68,11 +68,8 @@ struct SignInView: View {
                             Text("Sign Up")
                         }
                     }
-                    
                 }
             }
         }
-        
-        
     }
 }

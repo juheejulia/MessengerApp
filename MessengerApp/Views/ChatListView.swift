@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ChatListView: View {
     @State var showMessageView = false
     @StateObject var viewModel = ChatListViewModel()
@@ -30,8 +29,6 @@ struct ChatListView: View {
                         }.opacity(0)
                         ChatListRowView(message: message)
                     }
-                    
-                    
                 }
             }.listStyle(.plain)
                 .onChange(of: selectedUser, {
@@ -75,7 +72,6 @@ struct ChatListView: View {
                                 .frame(width: 32, height: 32)
                                 .foregroundStyle(Color(.systemGray5), .black)
                         }
-                        
                     }
                 }
         }

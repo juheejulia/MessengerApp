@@ -21,7 +21,6 @@ class ChatListViewModel: ObservableObject {
     init(){
         setupSubscibers()
         service.observeRecentMessages()
-        
     }
     
     private func setupSubscibers(){
@@ -38,9 +37,6 @@ class ChatListViewModel: ObservableObject {
         
         var messages = changes.compactMap({try? $0.document.data(as: Message.self)})
         
-        
-        
-        
         for i in 0 ..< messages.count {
             
             let recentMessage = messages[i]
@@ -53,7 +49,6 @@ class ChatListViewModel: ObservableObject {
                 }
                 self.recentMessages.append(messages[i])
                 self.recentMessages.sort(by: {$0.timeStamp.dateValue() > $1.timeStamp.dateValue()})
-                
             }
         }
     }
@@ -69,7 +64,5 @@ class ChatListViewModel: ObservableObject {
                 checkMessage = message
             }
         }
-        
-        
     }
 }

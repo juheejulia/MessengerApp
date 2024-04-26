@@ -35,12 +35,8 @@ struct ChatMessageCell: View {
                     .foregroundColor(.gray)
                     .padding(message.isFromCurrentUser ? .trailing: .leading, 25)
             }
-            
-            
-            
         }
         .frame(maxWidth: .infinity, alignment: message.isFromCurrentUser ? .trailing: .leading)
         .padding(message.isFromCurrentUser ? .trailing : .leading , message.isFromCurrentUser ? 20 : 5)
-        
     }
 }

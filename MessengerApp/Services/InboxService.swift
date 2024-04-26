@@ -25,6 +25,4 @@ class InboxService {
             self.documentChanges = changes
         }
     }
-    
-   
 }
